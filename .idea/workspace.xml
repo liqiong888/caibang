@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="032e1434-6817-42e0-9290-ccf46d26294e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/BasicModel/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caibang/org/BasicModel/Msg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/BasicModel/Page.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caibang/org/BasicModel/Page.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/CaibangApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/caibang/org/CaibangApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/login/controller/UserLoginController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/login/dao/UserLoginMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/login/model/UserLoginReq.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/login/model/UserLoginRes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/login/service/UserLoginService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/login/service/UserLoginServiceImp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/resource/master/model/MCompany.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/resource/master/model/MCompanyBankinfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/resource/master/model/MDepartment.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/resource/master/model/MUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/resource/master/model/MUserLoginLog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/resource/master/model/MUserMail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/caibang/org/resource/master/model/MUserPasswordLog.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserLoginMapper.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Z0PXX0Bq2ZEp0Z7Apc5sa6kYWB" />
+  <component name="ProjectViewState">
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\caibang" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.CaibangApplication">
+    <configuration name="CaibangApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.caibang.org.CaibangApplication" />
+      <module name="caibang" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.caibang.org.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CaibangApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="caibang" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.caibang.org.CaibangApplication" />
+      <option name="ACTIVE_PROFILES" value="dev" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.CaibangApplication" />
+      <item itemvalue="Spring Boot.CaibangApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CaibangApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\WYT-LQ\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="032e1434-6817-42e0-9290-ccf46d26294e" name="Default Changelist" comment="" />
+      <created>1583973077482</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1583973077482</updated>
+      <workItem from="1583973081896" duration="9489000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Inspections" timestamp="1583977633968">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Inspections/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583977633968" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1583983151043">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983151043" />
+    <state x="703" y="365" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1583977857841">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="703" y="365" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583977857841" />
+    <state x="786" y="266" key="FileChooserDialogImpl" timestamp="1583983223620">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="786" y="266" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983223620" />
+    <state width="1877" height="364" key="GridCell.Tab.0.bottom" timestamp="1583990088020">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1583990088020" />
+    <state width="1877" height="297" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021154" />
+    <state width="1877" height="364" key="GridCell.Tab.0.center" timestamp="1583990088020">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1583990088020" />
+    <state width="1877" height="297" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021154" />
+    <state width="1877" height="364" key="GridCell.Tab.0.left" timestamp="1583990088020">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1583990088020" />
+    <state width="1877" height="297" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021154" />
+    <state width="1877" height="364" key="GridCell.Tab.0.right" timestamp="1583990088020">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1583990088020" />
+    <state width="1877" height="297" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021154" />
+    <state width="1877" height="364" key="GridCell.Tab.1.bottom" timestamp="1583990087881">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1583990087881" />
+    <state width="1877" height="297" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021024" />
+    <state width="1877" height="364" key="GridCell.Tab.1.center" timestamp="1583990087881">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1583990087881" />
+    <state width="1877" height="297" key="GridCell.Tab.1.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021024" />
+    <state width="1877" height="364" key="GridCell.Tab.1.left" timestamp="1583990087881">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1583990087881" />
+    <state width="1877" height="297" key="GridCell.Tab.1.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021024" />
+    <state width="1877" height="364" key="GridCell.Tab.1.right" timestamp="1583990087881">
+      <screen x="-1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="364" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1583990087881" />
+    <state width="1877" height="297" key="GridCell.Tab.1.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021024" />
+    <state width="1877" height="297" key="GridCell.Tab.2.bottom" timestamp="1583983021024">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="297" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021024" />
+    <state width="1877" height="297" key="GridCell.Tab.2.center" timestamp="1583983021024">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="297" key="GridCell.Tab.2.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021024" />
+    <state width="1877" height="297" key="GridCell.Tab.2.left" timestamp="1583983021024">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="297" key="GridCell.Tab.2.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021024" />
+    <state width="1877" height="297" key="GridCell.Tab.2.right" timestamp="1583983021024">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="297" key="GridCell.Tab.2.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983021024" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1583977848278">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583977848278" />
+    <state x="721" y="238" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1583982253150">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="721" y="238" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583982253150" />
+    <state x="381" y="227" key="new project wizard" timestamp="1583983639616">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="381" y="227" key="new project wizard/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583983639616" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1583982335508">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1583982335508" />
+  </component>
+</project>
