@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.caibang.www.common.mapper.MUserMapper">
+  <resultMap id="BaseResultMap" type="com.caibang.www.common.model.MUser">
+    <id column="Mid" jdbcType="INTEGER" property="mid" />
+    <result column="MLoginName" jdbcType="VARCHAR" property="mloginname" />
+    <result column="MPhone" jdbcType="VARCHAR" property="mphone" />
+    <result column="MPassword" jdbcType="VARCHAR" property="mpassword" />
+    <result column="MName" jdbcType="VARCHAR" property="mname" />
+    <result column="MCard" jdbcType="VARCHAR" property="mcard" />
+    <result column="MCreatDate" jdbcType="TIMESTAMP" property="mcreatdate" />
+    <result column="MOpenId" jdbcType="VARCHAR" property="mopenid" />
+    <result column="MHeadImg" jdbcType="VARCHAR" property="mheadimg" />
+    <result column="MGender" jdbcType="INTEGER" property="mgender" />
+    <result column="MBirthDay" jdbcType="DATE" property="mbirthday" />
+    <result column="MState" jdbcType="INTEGER" property="mstate" />
+    <result column="MCId" jdbcType="INTEGER" property="mcid" />
+    <result column="MDepId" jdbcType="INTEGER" property="mdepid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    Mid, MLoginName, MPhone, MPassword, MName, MCard, MCreatDate, MOpenId, MHeadImg, 
+    MGender, MBirthDay, MState, MCId, MDepId
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from m_user
+    where Mid = #{mid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from m_user
+    where Mid = #{mid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.caibang.www.common.model.MUser">
+    insert into m_user (Mid, MLoginName, MPhone, 
+      MPassword, MName, MCard, 
+      MCreatDate, MOpenId, MHeadImg, 
+      MGender, MBirthDay, MState, 
+      MCId, MDepId)
+    values (#{mid,jdbcType=INTEGER}, #{mloginname,jdbcType=VARCHAR}, #{mphone,jdbcType=VARCHAR}, 
+      #{mpassword,jdbcType=VARCHAR}, #{mname,jdbcType=VARCHAR}, #{mcard,jdbcType=VARCHAR}, 
+      #{mcreatdate,jdbcType=TIMESTAMP}, #{mopenid,jdbcType=VARCHAR}, #{mheadimg,jdbcType=VARCHAR}, 
+      #{mgender,jdbcType=INTEGER}, #{mbirthday,jdbcType=DATE}, #{mstate,jdbcType=INTEGER}, 
+      #{mcid,jdbcType=INTEGER}, #{mdepid,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caibang.www.common.model.MUser">
+    insert into m_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        Mid,
+      </if>
+      <if test="mloginname != null">
+        MLoginName,
+      </if>
+      <if test="mphone != null">
+        MPhone,
+      </if>
+      <if test="mpassword != null">
+        MPassword,
+      </if>
+      <if test="mname != null">
+        MName,
+      </if>
+      <if test="mcard != null">
+        MCard,
+      </if>
+      <if test="mcreatdate != null">
+        MCreatDate,
+      </if>
+      <if test="mopenid != null">
+        MOpenId,
+      </if>
+      <if test="mheadimg != null">
+        MHeadImg,
+      </if>
+      <if test="mgender != null">
+        MGender,
+      </if>
+      <if test="mbirthday != null">
+        MBirthDay,
+      </if>
+      <if test="mstate != null">
+        MState,
+      </if>
+      <if test="mcid != null">
+        MCId,
+      </if>
+      <if test="mdepid != null">
+        MDepId,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="mid != null">
+        #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="mloginname != null">
+        #{mloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="mphone != null">
+        #{mphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mpassword != null">
+        #{mpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="mname != null">
+        #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="mcard != null">
+        #{mcard,jdbcType=VARCHAR},
+      </if>
+      <if test="mcreatdate != null">
+        #{mcreatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mopenid != null">
+        #{mopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="mheadimg != null">
+        #{mheadimg,jdbcType=VARCHAR},
+      </if>
+      <if test="mgender != null">
+        #{mgender,jdbcType=INTEGER},
+      </if>
+      <if test="mbirthday != null">
+        #{mbirthday,jdbcType=DATE},
+      </if>
+      <if test="mstate != null">
+        #{mstate,jdbcType=INTEGER},
+      </if>
+      <if test="mcid != null">
+        #{mcid,jdbcType=INTEGER},
+      </if>
+      <if test="mdepid != null">
+        #{mdepid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caibang.www.common.model.MUser">
+    update m_user
+    <set>
+      <if test="mloginname != null">
+        MLoginName = #{mloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="mphone != null">
+        MPhone = #{mphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mpassword != null">
+        MPassword = #{mpassword,jdbcType=VARCHAR},
+      </if>
+      <if test="mname != null">
+        MName = #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="mcard != null">
+        MCard = #{mcard,jdbcType=VARCHAR},
+      </if>
+      <if test="mcreatdate != null">
+        MCreatDate = #{mcreatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mopenid != null">
+        MOpenId = #{mopenid,jdbcType=VARCHAR},
+      </if>
+      <if test="mheadimg != null">
+        MHeadImg = #{mheadimg,jdbcType=VARCHAR},
+      </if>
+      <if test="mgender != null">
+        MGender = #{mgender,jdbcType=INTEGER},
+      </if>
+      <if test="mbirthday != null">
+        MBirthDay = #{mbirthday,jdbcType=DATE},
+      </if>
+      <if test="mstate != null">
+        MState = #{mstate,jdbcType=INTEGER},
+      </if>
+      <if test="mcid != null">
+        MCId = #{mcid,jdbcType=INTEGER},
+      </if>
+      <if test="mdepid != null">
+        MDepId = #{mdepid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Mid = #{mid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caibang.www.common.model.MUser">
+    update m_user
+    set MLoginName = #{mloginname,jdbcType=VARCHAR},
+      MPhone = #{mphone,jdbcType=VARCHAR},
+      MPassword = #{mpassword,jdbcType=VARCHAR},
+      MName = #{mname,jdbcType=VARCHAR},
+      MCard = #{mcard,jdbcType=VARCHAR},
+      MCreatDate = #{mcreatdate,jdbcType=TIMESTAMP},
+      MOpenId = #{mopenid,jdbcType=VARCHAR},
+      MHeadImg = #{mheadimg,jdbcType=VARCHAR},
+      MGender = #{mgender,jdbcType=INTEGER},
+      MBirthDay = #{mbirthday,jdbcType=DATE},
+      MState = #{mstate,jdbcType=INTEGER},
+      MCId = #{mcid,jdbcType=INTEGER},
+      MDepId = #{mdepid,jdbcType=INTEGER}
+    where Mid = #{mid,jdbcType=INTEGER}
+  </update>
+
+</mapper>
