@@ -44,7 +44,7 @@ public class MUser {
     }
 
     public void setMloginname(String mloginname) {
-        this.mloginname = mloginname == null ? null : mloginname.trim();
+        this.mloginname = mloginname;
     }
 
     public String getMphone() {
@@ -52,7 +52,7 @@ public class MUser {
     }
 
     public void setMphone(String mphone) {
-        this.mphone = mphone == null ? null : mphone.trim();
+        this.mphone = mphone;
     }
 
     public String getMpassword() {
@@ -60,7 +60,7 @@ public class MUser {
     }
 
     public void setMpassword(String mpassword) {
-        this.mpassword = mpassword == null ? null : mpassword.trim();
+        this.mpassword = mpassword;
     }
 
     public String getMname() {
@@ -68,7 +68,7 @@ public class MUser {
     }
 
     public void setMname(String mname) {
-        this.mname = mname == null ? null : mname.trim();
+        this.mname = mname;
     }
 
     public String getMcard() {
@@ -76,7 +76,7 @@ public class MUser {
     }
 
     public void setMcard(String mcard) {
-        this.mcard = mcard == null ? null : mcard.trim();
+        this.mcard = mcard;
     }
 
     public Date getMcreatdate() {
@@ -92,7 +92,7 @@ public class MUser {
     }
 
     public void setMopenid(String mopenid) {
-        this.mopenid = mopenid == null ? null : mopenid.trim();
+        this.mopenid = mopenid;
     }
 
     public String getMheadimg() {
@@ -100,7 +100,7 @@ public class MUser {
     }
 
     public void setMheadimg(String mheadimg) {
-        this.mheadimg = mheadimg == null ? null : mheadimg.trim();
+        this.mheadimg = mheadimg;
     }
 
     public Integer getMgender() {

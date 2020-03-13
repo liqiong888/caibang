@@ -17,8 +17,13 @@ public class UserLoginServiceImp implements UserLoginService {
     @Override
     public Msg signIn(String loginName, String password) {
 
-        Msg msg=new Msg();
+        Msg msg = new Msg();
         UserLoginRes userLoginRes = userLoginMapper.selectByNamePss(loginName, password);
+        if (userLoginRes == null) {
+            msg.setMsg("请求失败");
+            msg.setSuccess(false);
+            return msg;
+        }
         msg.setObj(userLoginRes);
         return msg;
     }

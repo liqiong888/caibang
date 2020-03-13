@@ -2,4 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.caibang.www.login.mapper.UserLoginMapper">
 
+    <select id="selectByNamePss" parameterType="java.lang.String" resultType="com.caibang.www.login.model.UserLoginRes">
+        select  m.*  from m_user m
+        WHERE m.`MLoginName` =#{loginName}
+        AND m.`MPassword` = #{password}
+    </select>
+
 </mapper>

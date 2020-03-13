@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caibang.www.common.mapper.MCompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.caibang.www.common.model.MCompany" >
+    <id column="Mid" property="mid" jdbcType="INTEGER" />
+    <result column="MType" property="mtype" jdbcType="INTEGER" />
+    <result column="MCode" property="mcode" jdbcType="VARCHAR" />
+    <result column="MName" property="mname" jdbcType="VARCHAR" />
+    <result column="MAddress" property="maddress" jdbcType="VARCHAR" />
+    <result column="MSocialUnifiedInformationCode" property="msocialunifiedinformationcode" jdbcType="VARCHAR" />
+    <result column="MRegisteredCapital" property="mregisteredcapital" jdbcType="INTEGER" />
+    <result column="MMainBusiness" property="mmainbusiness" jdbcType="VARCHAR" />
+    <result column="MBusinessScope" property="mbusinessscope" jdbcType="VARCHAR" />
+    <result column="MlegalpersonName" property="mlegalpersonname" jdbcType="VARCHAR" />
+    <result column="MlegalPhone" property="mlegalphone" jdbcType="VARCHAR" />
+    <result column="MlegalIdCar" property="mlegalidcar" jdbcType="VARCHAR" />
+    <result column="MlegalIdCarUrl_1" property="mlegalidcarurl1" jdbcType="VARCHAR" />
+    <result column="MlegalIdCarUrl_2" property="mlegalidcarurl2" jdbcType="VARCHAR" />
+    <result column="MlegalEmail" property="mlegalemail" jdbcType="VARCHAR" />
+    <result column="MContactPhone" property="mcontactphone" jdbcType="VARCHAR" />
+    <result column="MWebSite" property="mwebsite" jdbcType="VARCHAR" />
+    <result column="MState" property="mstate" jdbcType="INTEGER" />
+    <result column="MCreatId" property="mcreatid" jdbcType="INTEGER" />
+    <result column="MUpdataId" property="mupdataid" jdbcType="INTEGER" />
+    <result column="MCreatDate" property="mcreatdate" jdbcType="TIMESTAMP" />
+    <result column="MUpdataDate" property="mupdatadate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.caibang.www.common.model.MCompany" extends="BaseResultMap" >
+    <result column="MBusinessLicense" property="mbusinesslicense" jdbcType="VARBINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Mid, MType, MCode, MName, MAddress, MSocialUnifiedInformationCode, MRegisteredCapital, 
+    MMainBusiness, MBusinessScope, MlegalpersonName, MlegalPhone, MlegalIdCar, MlegalIdCarUrl_1, 
+    MlegalIdCarUrl_2, MlegalEmail, MContactPhone, MWebSite, MState, MCreatId, MUpdataId, 
+    MCreatDate, MUpdataDate
+  </sql>
+  <sql id="Blob_Column_List" >
+    MBusinessLicense
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from m_company
+    where Mid = #{mid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from m_company
+    where Mid = #{mid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.caibang.www.common.model.MCompany" >
+    insert into m_company (Mid, MType, MCode, 
+      MName, MAddress, MSocialUnifiedInformationCode, 
+      MRegisteredCapital, MMainBusiness, MBusinessScope, 
+      MlegalpersonName, MlegalPhone, MlegalIdCar, 
+      MlegalIdCarUrl_1, MlegalIdCarUrl_2, MlegalEmail, 
+      MContactPhone, MWebSite, MState, 
+      MCreatId, MUpdataId, MCreatDate, 
+      MUpdataDate, MBusinessLicense)
+    values (#{mid,jdbcType=INTEGER}, #{mtype,jdbcType=INTEGER}, #{mcode,jdbcType=VARCHAR}, 
+      #{mname,jdbcType=VARCHAR}, #{maddress,jdbcType=VARCHAR}, #{msocialunifiedinformationcode,jdbcType=VARCHAR}, 
+      #{mregisteredcapital,jdbcType=INTEGER}, #{mmainbusiness,jdbcType=VARCHAR}, #{mbusinessscope,jdbcType=VARCHAR}, 
+      #{mlegalpersonname,jdbcType=VARCHAR}, #{mlegalphone,jdbcType=VARCHAR}, #{mlegalidcar,jdbcType=VARCHAR}, 
+      #{mlegalidcarurl1,jdbcType=VARCHAR}, #{mlegalidcarurl2,jdbcType=VARCHAR}, #{mlegalemail,jdbcType=VARCHAR}, 
+      #{mcontactphone,jdbcType=VARCHAR}, #{mwebsite,jdbcType=VARCHAR}, #{mstate,jdbcType=INTEGER}, 
+      #{mcreatid,jdbcType=INTEGER}, #{mupdataid,jdbcType=INTEGER}, #{mcreatdate,jdbcType=TIMESTAMP}, 
+      #{mupdatadate,jdbcType=TIMESTAMP}, #{mbusinesslicense,jdbcType=VARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caibang.www.common.model.MCompany" >
+    insert into m_company
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mid != null" >
+        Mid,
+      </if>
+      <if test="mtype != null" >
+        MType,
+      </if>
+      <if test="mcode != null" >
+        MCode,
+      </if>
+      <if test="mname != null" >
+        MName,
+      </if>
+      <if test="maddress != null" >
+        MAddress,
+      </if>
+      <if test="msocialunifiedinformationcode != null" >
+        MSocialUnifiedInformationCode,
+      </if>
+      <if test="mregisteredcapital != null" >
+        MRegisteredCapital,
+      </if>
+      <if test="mmainbusiness != null" >
+        MMainBusiness,
+      </if>
+      <if test="mbusinessscope != null" >
+        MBusinessScope,
+      </if>
+      <if test="mlegalpersonname != null" >
+        MlegalpersonName,
+      </if>
+      <if test="mlegalphone != null" >
+        MlegalPhone,
+      </if>
+      <if test="mlegalidcar != null" >
+        MlegalIdCar,
+      </if>
+      <if test="mlegalidcarurl1 != null" >
+        MlegalIdCarUrl_1,
+      </if>
+      <if test="mlegalidcarurl2 != null" >
+        MlegalIdCarUrl_2,
+      </if>
+      <if test="mlegalemail != null" >
+        MlegalEmail,
+      </if>
+      <if test="mcontactphone != null" >
+        MContactPhone,
+      </if>
+      <if test="mwebsite != null" >
+        MWebSite,
+      </if>
+      <if test="mstate != null" >
+        MState,
+      </if>
+      <if test="mcreatid != null" >
+        MCreatId,
+      </if>
+      <if test="mupdataid != null" >
+        MUpdataId,
+      </if>
+      <if test="mcreatdate != null" >
+        MCreatDate,
+      </if>
+      <if test="mupdatadate != null" >
+        MUpdataDate,
+      </if>
+      <if test="mbusinesslicense != null" >
+        MBusinessLicense,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mid != null" >
+        #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="mtype != null" >
+        #{mtype,jdbcType=INTEGER},
+      </if>
+      <if test="mcode != null" >
+        #{mcode,jdbcType=VARCHAR},
+      </if>
+      <if test="mname != null" >
+        #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="maddress != null" >
+        #{maddress,jdbcType=VARCHAR},
+      </if>
+      <if test="msocialunifiedinformationcode != null" >
+        #{msocialunifiedinformationcode,jdbcType=VARCHAR},
+      </if>
+      <if test="mregisteredcapital != null" >
+        #{mregisteredcapital,jdbcType=INTEGER},
+      </if>
+      <if test="mmainbusiness != null" >
+        #{mmainbusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="mbusinessscope != null" >
+        #{mbusinessscope,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalpersonname != null" >
+        #{mlegalpersonname,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalphone != null" >
+        #{mlegalphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalidcar != null" >
+        #{mlegalidcar,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalidcarurl1 != null" >
+        #{mlegalidcarurl1,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalidcarurl2 != null" >
+        #{mlegalidcarurl2,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalemail != null" >
+        #{mlegalemail,jdbcType=VARCHAR},
+      </if>
+      <if test="mcontactphone != null" >
+        #{mcontactphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mwebsite != null" >
+        #{mwebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="mstate != null" >
+        #{mstate,jdbcType=INTEGER},
+      </if>
+      <if test="mcreatid != null" >
+        #{mcreatid,jdbcType=INTEGER},
+      </if>
+      <if test="mupdataid != null" >
+        #{mupdataid,jdbcType=INTEGER},
+      </if>
+      <if test="mcreatdate != null" >
+        #{mcreatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mupdatadate != null" >
+        #{mupdatadate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mbusinesslicense != null" >
+        #{mbusinesslicense,jdbcType=VARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caibang.www.common.model.MCompany" >
+    update m_company
+    <set >
+      <if test="mtype != null" >
+        MType = #{mtype,jdbcType=INTEGER},
+      </if>
+      <if test="mcode != null" >
+        MCode = #{mcode,jdbcType=VARCHAR},
+      </if>
+      <if test="mname != null" >
+        MName = #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="maddress != null" >
+        MAddress = #{maddress,jdbcType=VARCHAR},
+      </if>
+      <if test="msocialunifiedinformationcode != null" >
+        MSocialUnifiedInformationCode = #{msocialunifiedinformationcode,jdbcType=VARCHAR},
+      </if>
+      <if test="mregisteredcapital != null" >
+        MRegisteredCapital = #{mregisteredcapital,jdbcType=INTEGER},
+      </if>
+      <if test="mmainbusiness != null" >
+        MMainBusiness = #{mmainbusiness,jdbcType=VARCHAR},
+      </if>
+      <if test="mbusinessscope != null" >
+        MBusinessScope = #{mbusinessscope,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalpersonname != null" >
+        MlegalpersonName = #{mlegalpersonname,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalphone != null" >
+        MlegalPhone = #{mlegalphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalidcar != null" >
+        MlegalIdCar = #{mlegalidcar,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalidcarurl1 != null" >
+        MlegalIdCarUrl_1 = #{mlegalidcarurl1,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalidcarurl2 != null" >
+        MlegalIdCarUrl_2 = #{mlegalidcarurl2,jdbcType=VARCHAR},
+      </if>
+      <if test="mlegalemail != null" >
+        MlegalEmail = #{mlegalemail,jdbcType=VARCHAR},
+      </if>
+      <if test="mcontactphone != null" >
+        MContactPhone = #{mcontactphone,jdbcType=VARCHAR},
+      </if>
+      <if test="mwebsite != null" >
+        MWebSite = #{mwebsite,jdbcType=VARCHAR},
+      </if>
+      <if test="mstate != null" >
+        MState = #{mstate,jdbcType=INTEGER},
+      </if>
+      <if test="mcreatid != null" >
+        MCreatId = #{mcreatid,jdbcType=INTEGER},
+      </if>
+      <if test="mupdataid != null" >
+        MUpdataId = #{mupdataid,jdbcType=INTEGER},
+      </if>
+      <if test="mcreatdate != null" >
+        MCreatDate = #{mcreatdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mupdatadate != null" >
+        MUpdataDate = #{mupdatadate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mbusinesslicense != null" >
+        MBusinessLicense = #{mbusinesslicense,jdbcType=VARBINARY},
+      </if>
+    </set>
+    where Mid = #{mid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.caibang.www.common.model.MCompany" >
+    update m_company
+    set MType = #{mtype,jdbcType=INTEGER},
+      MCode = #{mcode,jdbcType=VARCHAR},
+      MName = #{mname,jdbcType=VARCHAR},
+      MAddress = #{maddress,jdbcType=VARCHAR},
+      MSocialUnifiedInformationCode = #{msocialunifiedinformationcode,jdbcType=VARCHAR},
+      MRegisteredCapital = #{mregisteredcapital,jdbcType=INTEGER},
+      MMainBusiness = #{mmainbusiness,jdbcType=VARCHAR},
+      MBusinessScope = #{mbusinessscope,jdbcType=VARCHAR},
+      MlegalpersonName = #{mlegalpersonname,jdbcType=VARCHAR},
+      MlegalPhone = #{mlegalphone,jdbcType=VARCHAR},
+      MlegalIdCar = #{mlegalidcar,jdbcType=VARCHAR},
+      MlegalIdCarUrl_1 = #{mlegalidcarurl1,jdbcType=VARCHAR},
+      MlegalIdCarUrl_2 = #{mlegalidcarurl2,jdbcType=VARCHAR},
+      MlegalEmail = #{mlegalemail,jdbcType=VARCHAR},
+      MContactPhone = #{mcontactphone,jdbcType=VARCHAR},
+      MWebSite = #{mwebsite,jdbcType=VARCHAR},
+      MState = #{mstate,jdbcType=INTEGER},
+      MCreatId = #{mcreatid,jdbcType=INTEGER},
+      MUpdataId = #{mupdataid,jdbcType=INTEGER},
+      MCreatDate = #{mcreatdate,jdbcType=TIMESTAMP},
+      MUpdataDate = #{mupdatadate,jdbcType=TIMESTAMP},
+      MBusinessLicense = #{mbusinesslicense,jdbcType=VARBINARY}
+    where Mid = #{mid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caibang.www.common.model.MCompany" >
+    update m_company
+    set MType = #{mtype,jdbcType=INTEGER},
+      MCode = #{mcode,jdbcType=VARCHAR},
+      MName = #{mname,jdbcType=VARCHAR},
+      MAddress = #{maddress,jdbcType=VARCHAR},
+      MSocialUnifiedInformationCode = #{msocialunifiedinformationcode,jdbcType=VARCHAR},
+      MRegisteredCapital = #{mregisteredcapital,jdbcType=INTEGER},
+      MMainBusiness = #{mmainbusiness,jdbcType=VARCHAR},
+      MBusinessScope = #{mbusinessscope,jdbcType=VARCHAR},
+      MlegalpersonName = #{mlegalpersonname,jdbcType=VARCHAR},
+      MlegalPhone = #{mlegalphone,jdbcType=VARCHAR},
+      MlegalIdCar = #{mlegalidcar,jdbcType=VARCHAR},
+      MlegalIdCarUrl_1 = #{mlegalidcarurl1,jdbcType=VARCHAR},
+      MlegalIdCarUrl_2 = #{mlegalidcarurl2,jdbcType=VARCHAR},
+      MlegalEmail = #{mlegalemail,jdbcType=VARCHAR},
+      MContactPhone = #{mcontactphone,jdbcType=VARCHAR},
+      MWebSite = #{mwebsite,jdbcType=VARCHAR},
+      MState = #{mstate,jdbcType=INTEGER},
+      MCreatId = #{mcreatid,jdbcType=INTEGER},
+      MUpdataId = #{mupdataid,jdbcType=INTEGER},
+      MCreatDate = #{mcreatdate,jdbcType=TIMESTAMP},
+      MUpdataDate = #{mupdatadate,jdbcType=TIMESTAMP}
+    where Mid = #{mid,jdbcType=INTEGER}
+  </update>
+</mapper>

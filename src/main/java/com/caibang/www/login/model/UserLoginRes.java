@@ -1,4 +1,6 @@
 package com.caibang.www.login.model;
 
-public class UserLoginRes {
+import com.caibang.www.common.model.MUser;
+
+public class UserLoginRes extends MUser {
 }
