@@ -1,7 +1,7 @@
 package com.caibang.www.login.controller;
 
 
-import com.caibang.www.BasicModel.Msg;
+import com.caibang.www.basicModel.Msg;
 import com.caibang.www.login.service.UserLoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class UserLoginController {
              msg = userLoginService.signIn(loginName, password);
             return msg;
         }catch (Exception e){
-            log.error("{}",e);
+            log.error("{}",e.getMessage());
             return msg ;
 
         }

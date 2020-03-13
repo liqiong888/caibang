@@ -1,4 +1,4 @@
-package com.caibang.www.BasicModel;
+package com.caibang.www.basicModel;
 
 /**
  * 相应类

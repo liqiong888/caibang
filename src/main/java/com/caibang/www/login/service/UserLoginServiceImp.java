@@ -1,7 +1,7 @@
 package com.caibang.www.login.service;
 
 
-import com.caibang.www.BasicModel.Msg;
+import com.caibang.www.basicModel.Msg;
 import com.caibang.www.login.mapper.UserLoginMapper;
 import com.caibang.www.login.model.UserLoginReq;
 import com.caibang.www.login.model.UserLoginRes;
