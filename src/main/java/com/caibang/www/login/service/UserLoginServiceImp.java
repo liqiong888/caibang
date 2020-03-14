@@ -6,14 +6,19 @@ import com.caibang.www.customAop.LoginAop;
 import com.caibang.www.login.mapper.UserLoginMapper;
 import com.caibang.www.login.model.UserLoginReq;
 import com.caibang.www.login.model.UserLoginRes;
+import com.caibang.www.utils.RedisUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class UserLoginServiceImp implements UserLoginService {
 
     @Autowired
     private UserLoginMapper userLoginMapper;
+    @Autowired
+    private RedisUtils redisUtils;
 
     @LoginAop(module = "")
     @Override
@@ -26,6 +31,8 @@ public class UserLoginServiceImp implements UserLoginService {
             msg.setSuccess(false);
             return msg;
         }
+        boolean b = redisUtils.setString(userLoginRes.getMloginname(), userLoginRes.getMphone());
+        log.info("redis 保存状态----->"+b);
         msg.setObj(userLoginRes);
         return msg;
     }
