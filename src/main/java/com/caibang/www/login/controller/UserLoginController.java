@@ -5,6 +5,7 @@ import com.caibang.www.basicModel.Msg;
 import com.caibang.www.login.service.UserLoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,5 +33,12 @@ public class UserLoginController {
             return msg ;
 
         }
+    }
+    @RequestMapping(value = "/error")
+    public Msg requestError(){
+        Msg msg = new Msg();
+        msg.setSuccess(false);
+        msg.setMsg("请求错误");
+        return msg;
     }
 }
