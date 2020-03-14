@@ -5,4 +5,6 @@ package com.caibang.www.customAop;
  */
 public @interface LoginAop {
 
+    String module();
+
 }

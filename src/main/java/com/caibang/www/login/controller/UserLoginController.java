@@ -27,6 +27,8 @@ public class UserLoginController {
             return msg;
         }catch (Exception e){
             log.error("{}",e.getMessage());
+            msg.setSuccess(false);
+            msg.setMsg("异常");
             return msg ;
 
         }

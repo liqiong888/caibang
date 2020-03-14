@@ -2,6 +2,7 @@ package com.caibang.www.login.service;
 
 
 import com.caibang.www.basicModel.Msg;
+import com.caibang.www.customAop.LoginAop;
 import com.caibang.www.login.mapper.UserLoginMapper;
 import com.caibang.www.login.model.UserLoginReq;
 import com.caibang.www.login.model.UserLoginRes;
@@ -14,9 +15,10 @@ public class UserLoginServiceImp implements UserLoginService {
     @Autowired
     private UserLoginMapper userLoginMapper;
 
+    @LoginAop(module = "")
     @Override
     public Msg signIn(String loginName, String password) {
-
+        System.out.println("---------method  ing----------------");
         Msg msg = new Msg();
         UserLoginRes userLoginRes = userLoginMapper.selectByNamePss(loginName, password);
         if (userLoginRes == null) {
