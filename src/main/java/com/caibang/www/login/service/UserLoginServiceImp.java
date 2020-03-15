@@ -31,7 +31,7 @@ public class UserLoginServiceImp implements UserLoginService {
             msg.setSuccess(false);
             return msg;
         }
-        boolean b = redisUtils.setString(userLoginRes.getMloginname(), userLoginRes.getMphone());
+        boolean b = redisUtils.set(userLoginRes.getMloginname(), userLoginRes.getMphone());
         log.info("redis 保存状态----->"+b);
         msg.setObj(userLoginRes);
         return msg;
