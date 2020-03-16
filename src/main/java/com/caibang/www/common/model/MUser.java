@@ -31,6 +31,16 @@ public class MUser {
 
     private Integer mdepid;
 
+    private Integer musertype;
+
+    public Integer getMusertype() {
+        return musertype;
+    }
+
+    public void setMusertype(Integer musertype) {
+        this.musertype = musertype;
+    }
+
     public Integer getMid() {
         return mid;
     }

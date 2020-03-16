@@ -16,10 +16,11 @@
     <result column="MState" property="mstate" jdbcType="INTEGER" />
     <result column="MCId" property="mcid" jdbcType="INTEGER" />
     <result column="MDepId" property="mdepid" jdbcType="INTEGER" />
+    <result column="MUserType" property="musertype" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     Mid, MLoginName, MPhone, MPassword, MName, MCard, MCreatDate, MOpenId, MHeadImg, 
-    MGender, MBirthDay, MState, MCId, MDepId
+    MGender, MBirthDay, MState, MCId, MDepId, MUserType
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -36,12 +37,12 @@
       MPassword, MName, MCard, 
       MCreatDate, MOpenId, MHeadImg, 
       MGender, MBirthDay, MState, 
-      MCId, MDepId)
+      MCId, MDepId,MUserType)
     values (#{mid,jdbcType=INTEGER}, #{mloginname,jdbcType=VARCHAR}, #{mphone,jdbcType=VARCHAR}, 
       #{mpassword,jdbcType=VARCHAR}, #{mname,jdbcType=VARCHAR}, #{mcard,jdbcType=VARCHAR}, 
       #{mcreatdate,jdbcType=TIMESTAMP}, #{mopenid,jdbcType=VARCHAR}, #{mheadimg,jdbcType=VARCHAR}, 
       #{mgender,jdbcType=INTEGER}, #{mbirthday,jdbcType=DATE}, #{mstate,jdbcType=INTEGER}, 
-      #{mcid,jdbcType=INTEGER}, #{mdepid,jdbcType=INTEGER})
+      #{mcid,jdbcType=INTEGER}, #{mdepid,jdbcType=INTEGER},#{musertype,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.caibang.www.common.model.MUser" >
     insert into m_user
@@ -88,6 +89,9 @@
       <if test="mdepid != null" >
         MDepId,
       </if>
+      <if test="musertype != null" >
+        MUserType,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="mid != null" >
@@ -131,6 +135,9 @@
       </if>
       <if test="mdepid != null" >
         #{mdepid,jdbcType=INTEGER},
+      </if>
+      <if test="musertype != null" >
+        #{musertype,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -176,6 +183,9 @@
       <if test="mdepid != null" >
         MDepId = #{mdepid,jdbcType=INTEGER},
       </if>
+      <if test="musertype != null" >
+        MUserType = #{musertype,jdbcType=INTEGER},
+      </if>
     </set>
     where Mid = #{mid,jdbcType=INTEGER}
   </update>
@@ -193,7 +203,8 @@
       MBirthDay = #{mbirthday,jdbcType=DATE},
       MState = #{mstate,jdbcType=INTEGER},
       MCId = #{mcid,jdbcType=INTEGER},
-      MDepId = #{mdepid,jdbcType=INTEGER}
+      MDepId = #{mdepid,jdbcType=INTEGER},
+      MUserType = #{musertype,jdbcType=INTEGER}
     where Mid = #{mid,jdbcType=INTEGER}
   </update>
 </mapper>
