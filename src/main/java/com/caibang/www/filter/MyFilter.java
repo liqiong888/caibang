@@ -1,13 +1,15 @@
 package com.caibang.www.filter;
 
 
+import com.caibang.www.utils.RedisUtils;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import java.io.BufferedReader;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.Charset;
 
 /**
  * 自定义过滤器
@@ -17,7 +19,13 @@ import java.nio.charset.Charset;
  * @WebFilter注解为声明此类为filter，第一个参数为该filter起一个名字，第二个参数为说明要拦截的请求地址。
  */
 @WebFilter(filterName = "myfilter", urlPatterns = "/*")
+@Slf4j
 public class MyFilter implements Filter {
+
+    @Autowired
+    RedisUtils redisUtils;
+
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         System.out.println("--------------->过滤器被创建<----------------");
@@ -54,13 +62,34 @@ public class MyFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest;
         httpServletRequest = (HttpServletRequest) servletRequest;
-        StringBuffer requestURL = httpServletRequest.getRequestURL();
-        System.out.println("-------------->过滤器请求地址<------------" + requestURL);
-        if (!requestURL.toString().contains("localhost:2221")) {
-            servletRequest.getRequestDispatcher("/web_user/error").forward(servletRequest, servletResponse);
-        } else {
 
-            filterChain.doFilter(httpServletRequest, servletResponse);
+        HttpSession session = httpServletRequest.getSession();
+        StringBuffer requestURL = httpServletRequest.getRequestURL();
+
+        if (requestURL.toString().contains("localhost:2221")) {
+            System.out.println("-------------->过滤器请求地址<------------" + requestURL);
+            if (session.getAttribute("loginName") != null) {
+                try {
+                    String sessionId = (String) redisUtils.get(session.getAttribute("loginName").toString());
+                    /**
+                     * session+redis
+                     * session共享   唯一登录
+                     */
+                    if (sessionId != null && sessionId.equals(session.getId())) {
+                        filterChain.doFilter(httpServletRequest, servletResponse);
+                    } else {
+                        servletRequest.getRequestDispatcher("/web_user/error").forward(servletRequest, servletResponse);
+                    }
+                } catch (Exception e) {
+                    log.error("{}{}", session.getAttribute("loginName"), e.getMessage());
+                }
+
+            } else {
+                //这是一个错误的测试
+                filterChain.doFilter(httpServletRequest, servletResponse);
+            }
+        } else {
+            servletRequest.getRequestDispatcher("/web_user/error").forward(servletRequest, servletResponse);
         }
     }
 

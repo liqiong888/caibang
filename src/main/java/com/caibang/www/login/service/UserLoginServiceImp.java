@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Service
 @Slf4j
 public class UserLoginServiceImp implements UserLoginService {
@@ -22,17 +24,19 @@ public class UserLoginServiceImp implements UserLoginService {
 
     @LoginAop(module = "")
     @Override
-    public Msg signIn(String loginName, String password) {
+    public Msg signIn(String loginName, String password, HttpServletRequest request) {
         System.out.println("---------method  ing----------------");
         Msg msg = new Msg();
         UserLoginRes userLoginRes = userLoginMapper.selectByNamePss(loginName, password);
+        redisUtils.set(userLoginRes.getMid().toString(), request.getSession().getId());
         if (userLoginRes == null) {
             msg.setMsg("请求失败");
             msg.setSuccess(false);
             return msg;
         }
-        boolean b = redisUtils.set(userLoginRes.getMloginname(), userLoginRes.getMphone());
-        log.info("redis 保存状态----->"+b);
+        request.getSession().setAttribute("loginName", userLoginRes.getMid().toString());
+        boolean b = redisUtils.set(userLoginRes.getMid().toString(), request.getSession().getId());
+        log.info("redis 保存状态----->" + b);
         msg.setObj(userLoginRes);
         return msg;
     }
@@ -43,7 +47,7 @@ public class UserLoginServiceImp implements UserLoginService {
     }
 
     @Override
-    public Msg signOut(Integer userId) {
+    public Msg signOut(Integer userId, HttpServletRequest request) {
         return null;
     }
 }

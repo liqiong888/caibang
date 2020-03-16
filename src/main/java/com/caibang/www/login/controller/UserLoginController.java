@@ -5,11 +5,12 @@ import com.caibang.www.basicModel.Msg;
 import com.caibang.www.login.service.UserLoginService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
 @RestController
@@ -20,11 +21,11 @@ public class UserLoginController {
     private UserLoginService userLoginService;
 
     @RequestMapping(value = "/signIn/{loginName}/{password}",method = RequestMethod.GET)
-    public Msg signIn(@PathVariable("loginName") String loginName,@PathVariable("password") String password) {
+    public Msg signIn(@PathVariable("loginName") String loginName,@PathVariable("password") String password , HttpServletRequest request) {
         Msg msg = new Msg();
         try {
 
-             msg = userLoginService.signIn(loginName, password);
+             msg = userLoginService.signIn(loginName, password,request);
             return msg;
         }catch (Exception e){
             log.error("{}",e.getMessage());
