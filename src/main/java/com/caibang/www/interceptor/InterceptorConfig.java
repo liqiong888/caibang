@@ -26,6 +26,9 @@ public class InterceptorConfig implements WebMvcConfigurer {
         // 多个拦截器组成一个拦截器链
         // addPathPatterns 用于添加拦截规则
         // excludePathPatterns 用户排除拦截
-        registry.addInterceptor(getInterceptorLoginInterceptor()).addPathPatterns("/api/**");
+        registry.addInterceptor(getInterceptorLoginInterceptor())
+                .addPathPatterns("/**")//所有路径都被拦截
+                .excludePathPatterns("/web_user/signIn/**","/swagger-ui.html","/favicon.ico","/webjars/**","/swagger-resources/**","/v2/**");//添加不拦截地址
+
     }
 }

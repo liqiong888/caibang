@@ -22,23 +22,22 @@ public class UserLoginServiceImp implements UserLoginService {
     @Autowired
     private RedisUtils redisUtils;
 
+    /**
+     * 测试前面demo
+     */
     @LoginAop(module = "")
     @Override
     public Msg signIn(String loginName, String password, HttpServletRequest request) {
         System.out.println("---------method  ing----------------");
-        Msg msg = new Msg();
         UserLoginRes userLoginRes = userLoginMapper.selectByNamePss(loginName, password);
-        redisUtils.set(userLoginRes.getMid().toString(), request.getSession().getId());
         if (userLoginRes == null) {
-            msg.setMsg("请求失败");
-            msg.setSuccess(false);
-            return msg;
+            return Msg.error("登录失败");
         }
+        redisUtils.set(userLoginRes.getMid().toString(), request.getSession().getId());
         request.getSession().setAttribute("loginName", userLoginRes.getMid().toString());
         boolean b = redisUtils.set(userLoginRes.getMid().toString(), request.getSession().getId());
         log.info("redis 保存状态----->" + b);
-        msg.setObj(userLoginRes);
-        return msg;
+        return Msg.success(userLoginRes);
     }
 
     @Override
@@ -48,6 +47,13 @@ public class UserLoginServiceImp implements UserLoginService {
 
     @Override
     public Msg signOut(Integer userId, HttpServletRequest request) {
-        return null;
+        if (userId == null) {
+            return Msg.error("无参数");
+        }
+        boolean b = redisUtils.hasKey(userId.toString());
+        if (b) {
+            redisUtils.del(userId.toString());
+        }
+        return Msg.success();
     }
 }

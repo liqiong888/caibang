@@ -3,6 +3,7 @@ package com.caibang.www.filter;
 
 import com.caibang.www.utils.RedisUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.*;
@@ -68,26 +69,7 @@ public class MyFilter implements Filter {
 
         if (requestURL.toString().contains("localhost:2221")) {
             System.out.println("-------------->过滤器请求地址<------------" + requestURL);
-            if (session.getAttribute("loginName") != null) {
-                try {
-                    String sessionId = (String) redisUtils.get(session.getAttribute("loginName").toString());
-                    /**
-                     * session+redis
-                     * session共享   唯一登录
-                     */
-                    if (sessionId != null && sessionId.equals(session.getId())) {
-                        filterChain.doFilter(httpServletRequest, servletResponse);
-                    } else {
-                        servletRequest.getRequestDispatcher("/web_user/error").forward(servletRequest, servletResponse);
-                    }
-                } catch (Exception e) {
-                    log.error("{}{}", session.getAttribute("loginName"), e.getMessage());
-                }
-
-            } else {
-                //这是一个错误的测试
-                filterChain.doFilter(httpServletRequest, servletResponse);
-            }
+           filterChain.doFilter(httpServletRequest, servletResponse);
         } else {
             servletRequest.getRequestDispatcher("/web_user/error").forward(servletRequest, servletResponse);
         }
