@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caibang.www.common.mapper.SCompanyMapper" >
+  <resultMap id="BaseResultMap" type="com.caibang.www.common.model.SCompany" >
+    <id column="s_id" property="sId" jdbcType="INTEGER" />
+    <result column="s_company_name" property="sCompanyName" jdbcType="VARCHAR" />
+    <result column="s_company_address" property="sCompanyAddress" jdbcType="VARCHAR" />
+    <result column="s_company_web" property="sCompanyWeb" jdbcType="VARCHAR" />
+    <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+    <result column="update_at" property="updateAt" jdbcType="TIMESTAMP" />
+    <result column="delete_at" property="deleteAt" jdbcType="TIMESTAMP" />
+    <result column="operator_id" property="operatorId" jdbcType="INTEGER" />
+    <result column="operator_name" property="operatorName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    s_id, s_company_name, s_company_address, s_company_web, create_at, update_at, delete_at, 
+    operator_id, operator_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from s_company
+    where s_id = #{sId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from s_company
+    where s_id = #{sId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.caibang.www.common.model.SCompany" >
+    insert into s_company (s_id, s_company_name, s_company_address, 
+      s_company_web, create_at, update_at, 
+      delete_at, operator_id, operator_name
+      )
+    values (#{sId,jdbcType=INTEGER}, #{sCompanyName,jdbcType=VARCHAR}, #{sCompanyAddress,jdbcType=VARCHAR}, 
+      #{sCompanyWeb,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, #{updateAt,jdbcType=TIMESTAMP}, 
+      #{deleteAt,jdbcType=TIMESTAMP}, #{operatorId,jdbcType=INTEGER}, #{operatorName,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.caibang.www.common.model.SCompany" >
+    insert into s_company
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        s_id,
+      </if>
+      <if test="sCompanyName != null" >
+        s_company_name,
+      </if>
+      <if test="sCompanyAddress != null" >
+        s_company_address,
+      </if>
+      <if test="sCompanyWeb != null" >
+        s_company_web,
+      </if>
+      <if test="createAt != null" >
+        create_at,
+      </if>
+      <if test="updateAt != null" >
+        update_at,
+      </if>
+      <if test="deleteAt != null" >
+        delete_at,
+      </if>
+      <if test="operatorId != null" >
+        operator_id,
+      </if>
+      <if test="operatorName != null" >
+        operator_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sCompanyName != null" >
+        #{sCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="sCompanyAddress != null" >
+        #{sCompanyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sCompanyWeb != null" >
+        #{sCompanyWeb,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null" >
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteAt != null" >
+        #{deleteAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null" >
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorName != null" >
+        #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caibang.www.common.model.SCompany" >
+    update s_company
+    <set >
+      <if test="sCompanyName != null" >
+        s_company_name = #{sCompanyName,jdbcType=VARCHAR},
+      </if>
+      <if test="sCompanyAddress != null" >
+        s_company_address = #{sCompanyAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sCompanyWeb != null" >
+        s_company_web = #{sCompanyWeb,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null" >
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteAt != null" >
+        delete_at = #{deleteAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null" >
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorName != null" >
+        operator_name = #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caibang.www.common.model.SCompany" >
+    update s_company
+    set s_company_name = #{sCompanyName,jdbcType=VARCHAR},
+      s_company_address = #{sCompanyAddress,jdbcType=VARCHAR},
+      s_company_web = #{sCompanyWeb,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP},
+      delete_at = #{deleteAt,jdbcType=TIMESTAMP},
+      operator_id = #{operatorId,jdbcType=INTEGER},
+      operator_name = #{operatorName,jdbcType=VARCHAR}
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+</mapper>

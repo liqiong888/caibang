@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caibang.www.common.mapper.SLoginLogMapper" >
+  <resultMap id="BaseResultMap" type="com.caibang.www.common.model.SLoginLog" >
+    <id column="s_id" property="sId" jdbcType="INTEGER" />
+    <result column="s_user_id" property="sUserId" jdbcType="INTEGER" />
+    <result column="s_user_name" property="sUserName" jdbcType="VARCHAR" />
+    <result column="s_login_type" property="sLoginType" jdbcType="BIT" />
+    <result column="s_login_ip" property="sLoginIp" jdbcType="VARCHAR" />
+    <result column="s_login_address" property="sLoginAddress" jdbcType="VARCHAR" />
+    <result column="s_login_brower" property="sLoginBrower" jdbcType="VARCHAR" />
+    <result column="s_login_lon" property="sLoginLon" jdbcType="VARCHAR" />
+    <result column="s_login_lat" property="sLoginLat" jdbcType="VARCHAR" />
+    <result column="s_login_start_time" property="sLoginStartTime" jdbcType="TIMESTAMP" />
+    <result column="s_login_end_time" property="sLoginEndTime" jdbcType="TIMESTAMP" />
+    <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+    <result column="update_at" property="updateAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    s_id, s_user_id, s_user_name, s_login_type, s_login_ip, s_login_address, s_login_brower, 
+    s_login_lon, s_login_lat, s_login_start_time, s_login_end_time, create_at, update_at
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from s_login_log
+    where s_id = #{sId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from s_login_log
+    where s_id = #{sId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.caibang.www.common.model.SLoginLog" >
+    insert into s_login_log (s_id, s_user_id, s_user_name, 
+      s_login_type, s_login_ip, s_login_address, 
+      s_login_brower, s_login_lon, s_login_lat, 
+      s_login_start_time, s_login_end_time, create_at, 
+      update_at)
+    values (#{sId,jdbcType=INTEGER}, #{sUserId,jdbcType=INTEGER}, #{sUserName,jdbcType=VARCHAR}, 
+      #{sLoginType,jdbcType=BIT}, #{sLoginIp,jdbcType=VARCHAR}, #{sLoginAddress,jdbcType=VARCHAR}, 
+      #{sLoginBrower,jdbcType=VARCHAR}, #{sLoginLon,jdbcType=VARCHAR}, #{sLoginLat,jdbcType=VARCHAR}, 
+      #{sLoginStartTime,jdbcType=TIMESTAMP}, #{sLoginEndTime,jdbcType=TIMESTAMP}, #{createAt,jdbcType=TIMESTAMP}, 
+      #{updateAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caibang.www.common.model.SLoginLog" >
+    insert into s_login_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        s_id,
+      </if>
+      <if test="sUserId != null" >
+        s_user_id,
+      </if>
+      <if test="sUserName != null" >
+        s_user_name,
+      </if>
+      <if test="sLoginType != null" >
+        s_login_type,
+      </if>
+      <if test="sLoginIp != null" >
+        s_login_ip,
+      </if>
+      <if test="sLoginAddress != null" >
+        s_login_address,
+      </if>
+      <if test="sLoginBrower != null" >
+        s_login_brower,
+      </if>
+      <if test="sLoginLon != null" >
+        s_login_lon,
+      </if>
+      <if test="sLoginLat != null" >
+        s_login_lat,
+      </if>
+      <if test="sLoginStartTime != null" >
+        s_login_start_time,
+      </if>
+      <if test="sLoginEndTime != null" >
+        s_login_end_time,
+      </if>
+      <if test="createAt != null" >
+        create_at,
+      </if>
+      <if test="updateAt != null" >
+        update_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sUserId != null" >
+        #{sUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sUserName != null" >
+        #{sUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginType != null" >
+        #{sLoginType,jdbcType=BIT},
+      </if>
+      <if test="sLoginIp != null" >
+        #{sLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginAddress != null" >
+        #{sLoginAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginBrower != null" >
+        #{sLoginBrower,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginLon != null" >
+        #{sLoginLon,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginLat != null" >
+        #{sLoginLat,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginStartTime != null" >
+        #{sLoginStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sLoginEndTime != null" >
+        #{sLoginEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createAt != null" >
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null" >
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caibang.www.common.model.SLoginLog" >
+    update s_login_log
+    <set >
+      <if test="sUserId != null" >
+        s_user_id = #{sUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sUserName != null" >
+        s_user_name = #{sUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginType != null" >
+        s_login_type = #{sLoginType,jdbcType=BIT},
+      </if>
+      <if test="sLoginIp != null" >
+        s_login_ip = #{sLoginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginAddress != null" >
+        s_login_address = #{sLoginAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginBrower != null" >
+        s_login_brower = #{sLoginBrower,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginLon != null" >
+        s_login_lon = #{sLoginLon,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginLat != null" >
+        s_login_lat = #{sLoginLat,jdbcType=VARCHAR},
+      </if>
+      <if test="sLoginStartTime != null" >
+        s_login_start_time = #{sLoginStartTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sLoginEndTime != null" >
+        s_login_end_time = #{sLoginEndTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createAt != null" >
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null" >
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caibang.www.common.model.SLoginLog" >
+    update s_login_log
+    set s_user_id = #{sUserId,jdbcType=INTEGER},
+      s_user_name = #{sUserName,jdbcType=VARCHAR},
+      s_login_type = #{sLoginType,jdbcType=BIT},
+      s_login_ip = #{sLoginIp,jdbcType=VARCHAR},
+      s_login_address = #{sLoginAddress,jdbcType=VARCHAR},
+      s_login_brower = #{sLoginBrower,jdbcType=VARCHAR},
+      s_login_lon = #{sLoginLon,jdbcType=VARCHAR},
+      s_login_lat = #{sLoginLat,jdbcType=VARCHAR},
+      s_login_start_time = #{sLoginStartTime,jdbcType=TIMESTAMP},
+      s_login_end_time = #{sLoginEndTime,jdbcType=TIMESTAMP},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP}
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+</mapper>

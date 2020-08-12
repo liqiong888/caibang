@@ -1,11 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.caibang.www.login.mapper.UserLoginMapper">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caibang.www.core.login.mapper.UserLoginMapper">
+    <resultMap id="BaseResultMap" type="com.caibang.www.common.model.SUser">
+        <id column="s_id" property="sId" jdbcType="INTEGER"/>
+        <id column="s_login_name" property="sLoginName" jdbcType="VARCHAR"/>
+        <id column="s_phone" property="sPhone" jdbcType="VARCHAR"/>
+        <result column="s_password" property="sPassword" jdbcType="VARCHAR"/>
+        <result column="s_name" property="sName" jdbcType="VARCHAR"/>
+        <result column="s_card" property="sCard" jdbcType="VARCHAR"/>
+        <result column="s_openid" property="sOpenid" jdbcType="VARCHAR"/>
+        <result column="s_head_img" property="sHeadImg" jdbcType="VARCHAR"/>
+        <result column="s_gender" property="sGender" jdbcType="VARCHAR"/>
+        <result column="s_birthday" property="sBirthday" jdbcType="DATE"/>
+        <result column="s_status" property="sStatus" jdbcType="INTEGER"/>
+        <result column="s_cid" property="sCid" jdbcType="INTEGER"/>
+        <result column="s_depid" property="sDepid" jdbcType="INTEGER"/>
+        <result column="s_user_type" property="sUserType" jdbcType="INTEGER"/>
+        <result column="create_at" property="createAt" jdbcType="TIMESTAMP"/>
+        <result column="update_at" property="updateAt" jdbcType="TIMESTAMP"/>
+        <result column="delete_at" property="deleteAt" jdbcType="TIMESTAMP"/>
+        <result column="operator_id" property="operatorId" jdbcType="INTEGER"/>
+        <result column="operator_name" property="operatorName" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    s_id, s_login_name, s_phone, s_password, s_name, s_card, s_openid, s_head_img, s_gender,
+    s_birthday, s_status, s_cid, s_depid, s_user_type, create_at, update_at, delete_at,
+    operator_id, operator_name
+  </sql>
+    <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from s_user
+        where s_login_name = #{loginName,jdbcType=VARCHAR}
 
-    <select id="selectByNamePss" parameterType="java.lang.String" resultType="com.caibang.www.login.model.UserLoginRes">
-        select  m.*  from m_user m
-        WHERE m.`MLoginName` =#{loginName}
-        AND m.`MPassword` = #{password}
     </select>
-
 </mapper>

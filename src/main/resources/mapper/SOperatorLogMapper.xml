@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caibang.www.common.mapper.SOperatorLogMapper" >
+  <resultMap id="BaseResultMap" type="com.caibang.www.common.model.SOperatorLog" >
+    <id column="s_id" property="sId" jdbcType="INTEGER" />
+    <result column="s_user_id" property="sUserId" jdbcType="INTEGER" />
+    <result column="s_user_name" property="sUserName" jdbcType="VARCHAR" />
+    <result column="s_operator_type" property="sOperatorType" jdbcType="BIT" />
+    <result column="s_operator_url" property="sOperatorUrl" jdbcType="VARCHAR" />
+    <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.caibang.www.common.model.SOperatorLog" extends="BaseResultMap" >
+    <result column="s_operator_content" property="sOperatorContent" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    s_id, s_user_id, s_user_name, s_operator_type, s_operator_url, create_at
+  </sql>
+  <sql id="Blob_Column_List" >
+    s_operator_content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from s_operator_log
+    where s_id = #{sId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from s_operator_log
+    where s_id = #{sId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.caibang.www.common.model.SOperatorLog" >
+    insert into s_operator_log (s_id, s_user_id, s_user_name, 
+      s_operator_type, s_operator_url, create_at, 
+      s_operator_content)
+    values (#{sId,jdbcType=INTEGER}, #{sUserId,jdbcType=INTEGER}, #{sUserName,jdbcType=VARCHAR}, 
+      #{sOperatorType,jdbcType=BIT}, #{sOperatorUrl,jdbcType=VARCHAR}, #{createAt,jdbcType=TIMESTAMP}, 
+      #{sOperatorContent,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caibang.www.common.model.SOperatorLog" >
+    insert into s_operator_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        s_id,
+      </if>
+      <if test="sUserId != null" >
+        s_user_id,
+      </if>
+      <if test="sUserName != null" >
+        s_user_name,
+      </if>
+      <if test="sOperatorType != null" >
+        s_operator_type,
+      </if>
+      <if test="sOperatorUrl != null" >
+        s_operator_url,
+      </if>
+      <if test="createAt != null" >
+        create_at,
+      </if>
+      <if test="sOperatorContent != null" >
+        s_operator_content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sUserId != null" >
+        #{sUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sUserName != null" >
+        #{sUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sOperatorType != null" >
+        #{sOperatorType,jdbcType=BIT},
+      </if>
+      <if test="sOperatorUrl != null" >
+        #{sOperatorUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sOperatorContent != null" >
+        #{sOperatorContent,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caibang.www.common.model.SOperatorLog" >
+    update s_operator_log
+    <set >
+      <if test="sUserId != null" >
+        s_user_id = #{sUserId,jdbcType=INTEGER},
+      </if>
+      <if test="sUserName != null" >
+        s_user_name = #{sUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="sOperatorType != null" >
+        s_operator_type = #{sOperatorType,jdbcType=BIT},
+      </if>
+      <if test="sOperatorUrl != null" >
+        s_operator_url = #{sOperatorUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sOperatorContent != null" >
+        s_operator_content = #{sOperatorContent,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.caibang.www.common.model.SOperatorLog" >
+    update s_operator_log
+    set s_user_id = #{sUserId,jdbcType=INTEGER},
+      s_user_name = #{sUserName,jdbcType=VARCHAR},
+      s_operator_type = #{sOperatorType,jdbcType=BIT},
+      s_operator_url = #{sOperatorUrl,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      s_operator_content = #{sOperatorContent,jdbcType=LONGVARBINARY}
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caibang.www.common.model.SOperatorLog" >
+    update s_operator_log
+    set s_user_id = #{sUserId,jdbcType=INTEGER},
+      s_user_name = #{sUserName,jdbcType=VARCHAR},
+      s_operator_type = #{sOperatorType,jdbcType=BIT},
+      s_operator_url = #{sOperatorUrl,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP}
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+</mapper>

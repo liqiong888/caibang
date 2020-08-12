@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caibang.www.common.mapper.SMenuMapper" >
+  <resultMap id="BaseResultMap" type="com.caibang.www.common.model.SMenu" >
+    <id column="s_id" property="sId" jdbcType="INTEGER" />
+    <result column="s_menu_type" property="sMenuType" jdbcType="INTEGER" />
+    <result column="s_menu_code" property="sMenuCode" jdbcType="VARCHAR" />
+    <result column="s_menu_name" property="sMenuName" jdbcType="VARCHAR" />
+    <result column="s_menu_url" property="sMenuUrl" jdbcType="VARCHAR" />
+    <result column="s_menu_icon" property="sMenuIcon" jdbcType="VARCHAR" />
+    <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+    <result column="update_at" property="updateAt" jdbcType="TIMESTAMP" />
+    <result column="delete_at" property="deleteAt" jdbcType="TIMESTAMP" />
+    <result column="operator_id" property="operatorId" jdbcType="INTEGER" />
+    <result column="operator_name" property="operatorName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    s_id, s_menu_type, s_menu_code, s_menu_name, s_menu_url, s_menu_icon, create_at, 
+    update_at, delete_at, operator_id, operator_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from s_menu
+    where s_id = #{sId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from s_menu
+    where s_id = #{sId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.caibang.www.common.model.SMenu" >
+    insert into s_menu (s_id, s_menu_type, s_menu_code, 
+      s_menu_name, s_menu_url, s_menu_icon, 
+      create_at, update_at, delete_at, 
+      operator_id, operator_name)
+    values (#{sId,jdbcType=INTEGER}, #{sMenuType,jdbcType=INTEGER}, #{sMenuCode,jdbcType=VARCHAR}, 
+      #{sMenuName,jdbcType=VARCHAR}, #{sMenuUrl,jdbcType=VARCHAR}, #{sMenuIcon,jdbcType=VARCHAR}, 
+      #{createAt,jdbcType=TIMESTAMP}, #{updateAt,jdbcType=TIMESTAMP}, #{deleteAt,jdbcType=TIMESTAMP}, 
+      #{operatorId,jdbcType=INTEGER}, #{operatorName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caibang.www.common.model.SMenu" >
+    insert into s_menu
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        s_id,
+      </if>
+      <if test="sMenuType != null" >
+        s_menu_type,
+      </if>
+      <if test="sMenuCode != null" >
+        s_menu_code,
+      </if>
+      <if test="sMenuName != null" >
+        s_menu_name,
+      </if>
+      <if test="sMenuUrl != null" >
+        s_menu_url,
+      </if>
+      <if test="sMenuIcon != null" >
+        s_menu_icon,
+      </if>
+      <if test="createAt != null" >
+        create_at,
+      </if>
+      <if test="updateAt != null" >
+        update_at,
+      </if>
+      <if test="deleteAt != null" >
+        delete_at,
+      </if>
+      <if test="operatorId != null" >
+        operator_id,
+      </if>
+      <if test="operatorName != null" >
+        operator_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sMenuType != null" >
+        #{sMenuType,jdbcType=INTEGER},
+      </if>
+      <if test="sMenuCode != null" >
+        #{sMenuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sMenuName != null" >
+        #{sMenuName,jdbcType=VARCHAR},
+      </if>
+      <if test="sMenuUrl != null" >
+        #{sMenuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sMenuIcon != null" >
+        #{sMenuIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null" >
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteAt != null" >
+        #{deleteAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null" >
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorName != null" >
+        #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caibang.www.common.model.SMenu" >
+    update s_menu
+    <set >
+      <if test="sMenuType != null" >
+        s_menu_type = #{sMenuType,jdbcType=INTEGER},
+      </if>
+      <if test="sMenuCode != null" >
+        s_menu_code = #{sMenuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sMenuName != null" >
+        s_menu_name = #{sMenuName,jdbcType=VARCHAR},
+      </if>
+      <if test="sMenuUrl != null" >
+        s_menu_url = #{sMenuUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sMenuIcon != null" >
+        s_menu_icon = #{sMenuIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="createAt != null" >
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null" >
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteAt != null" >
+        delete_at = #{deleteAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null" >
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorName != null" >
+        operator_name = #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caibang.www.common.model.SMenu" >
+    update s_menu
+    set s_menu_type = #{sMenuType,jdbcType=INTEGER},
+      s_menu_code = #{sMenuCode,jdbcType=VARCHAR},
+      s_menu_name = #{sMenuName,jdbcType=VARCHAR},
+      s_menu_url = #{sMenuUrl,jdbcType=VARCHAR},
+      s_menu_icon = #{sMenuIcon,jdbcType=VARCHAR},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP},
+      delete_at = #{deleteAt,jdbcType=TIMESTAMP},
+      operator_id = #{operatorId,jdbcType=INTEGER},
+      operator_name = #{operatorName,jdbcType=VARCHAR}
+    where s_id = #{sId,jdbcType=INTEGER}
+  </update>
+</mapper>

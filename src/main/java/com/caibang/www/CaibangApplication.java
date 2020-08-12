@@ -8,7 +8,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@MapperScan({"com.caibang.www.*.mapper"})
+@MapperScan({"com.caibang.www.*.mapper","com.caibang.www.core.*.mapper"})
 @ServletComponentScan
 public class CaibangApplication {
 

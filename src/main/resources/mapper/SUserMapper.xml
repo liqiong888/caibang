@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.caibang.www.common.mapper.SUserMapper" >
+  <resultMap id="BaseResultMap" type="com.caibang.www.common.model.SUser" >
+    <id column="s_id" property="sId" jdbcType="INTEGER" />
+    <id column="s_login_name" property="sLoginName" jdbcType="VARCHAR" />
+    <id column="s_phone" property="sPhone" jdbcType="VARCHAR" />
+    <result column="s_password" property="sPassword" jdbcType="VARCHAR" />
+    <result column="s_name" property="sName" jdbcType="VARCHAR" />
+    <result column="s_card" property="sCard" jdbcType="VARCHAR" />
+    <result column="s_openid" property="sOpenid" jdbcType="VARCHAR" />
+    <result column="s_head_img" property="sHeadImg" jdbcType="VARCHAR" />
+    <result column="s_gender" property="sGender" jdbcType="VARCHAR" />
+    <result column="s_birthday" property="sBirthday" jdbcType="DATE" />
+    <result column="s_status" property="sStatus" jdbcType="INTEGER" />
+    <result column="s_cid" property="sCid" jdbcType="INTEGER" />
+    <result column="s_depid" property="sDepid" jdbcType="INTEGER" />
+    <result column="s_user_type" property="sUserType" jdbcType="INTEGER" />
+    <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+    <result column="update_at" property="updateAt" jdbcType="TIMESTAMP" />
+    <result column="delete_at" property="deleteAt" jdbcType="TIMESTAMP" />
+    <result column="operator_id" property="operatorId" jdbcType="INTEGER" />
+    <result column="operator_name" property="operatorName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    s_id, s_login_name, s_phone, s_password, s_name, s_card, s_openid, s_head_img, s_gender, 
+    s_birthday, s_status, s_cid, s_depid, s_user_type, create_at, update_at, delete_at, 
+    operator_id, operator_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.caibang.www.common.model.SUserKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from s_user
+    where s_id = #{sId,jdbcType=INTEGER}
+      and s_login_name = #{sLoginName,jdbcType=VARCHAR}
+      and s_phone = #{sPhone,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByPrimaryKey2" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from s_user
+    where s_id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.caibang.www.common.model.SUserKey" >
+    delete from s_user
+    where s_id = #{sId,jdbcType=INTEGER}
+      and s_login_name = #{sLoginName,jdbcType=VARCHAR}
+      and s_phone = #{sPhone,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.caibang.www.common.model.SUser" >
+    insert into s_user (s_id, s_login_name, s_phone, 
+      s_password, s_name, s_card, 
+      s_openid, s_head_img, s_gender, 
+      s_birthday, s_status, s_cid, 
+      s_depid, s_user_type, create_at, 
+      update_at, delete_at, operator_id, 
+      operator_name)
+    values (#{sId,jdbcType=INTEGER}, #{sLoginName,jdbcType=VARCHAR}, #{sPhone,jdbcType=VARCHAR}, 
+      #{sPassword,jdbcType=VARCHAR}, #{sName,jdbcType=VARCHAR}, #{sCard,jdbcType=VARCHAR}, 
+      #{sOpenid,jdbcType=VARCHAR}, #{sHeadImg,jdbcType=VARCHAR}, #{sGender,jdbcType=VARCHAR}, 
+      #{sBirthday,jdbcType=DATE}, #{sStatus,jdbcType=INTEGER}, #{sCid,jdbcType=INTEGER}, 
+      #{sDepid,jdbcType=INTEGER}, #{sUserType,jdbcType=INTEGER}, #{createAt,jdbcType=TIMESTAMP}, 
+      #{updateAt,jdbcType=TIMESTAMP}, #{deleteAt,jdbcType=TIMESTAMP}, #{operatorId,jdbcType=INTEGER}, 
+      #{operatorName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.caibang.www.common.model.SUser" >
+    insert into s_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        s_id,
+      </if>
+      <if test="sLoginName != null" >
+        s_login_name,
+      </if>
+      <if test="sPhone != null" >
+        s_phone,
+      </if>
+      <if test="sPassword != null" >
+        s_password,
+      </if>
+      <if test="sName != null" >
+        s_name,
+      </if>
+      <if test="sCard != null" >
+        s_card,
+      </if>
+      <if test="sOpenid != null" >
+        s_openid,
+      </if>
+      <if test="sHeadImg != null" >
+        s_head_img,
+      </if>
+      <if test="sGender != null" >
+        s_gender,
+      </if>
+      <if test="sBirthday != null" >
+        s_birthday,
+      </if>
+      <if test="sStatus != null" >
+        s_status,
+      </if>
+      <if test="sCid != null" >
+        s_cid,
+      </if>
+      <if test="sDepid != null" >
+        s_depid,
+      </if>
+      <if test="sUserType != null" >
+        s_user_type,
+      </if>
+      <if test="createAt != null" >
+        create_at,
+      </if>
+      <if test="updateAt != null" >
+        update_at,
+      </if>
+      <if test="deleteAt != null" >
+        delete_at,
+      </if>
+      <if test="operatorId != null" >
+        operator_id,
+      </if>
+      <if test="operatorName != null" >
+        operator_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sId != null" >
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="sLoginName != null" >
+        #{sLoginName,jdbcType=VARCHAR},
+      </if>
+      <if test="sPhone != null" >
+        #{sPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="sPassword != null" >
+        #{sPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sName != null" >
+        #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sCard != null" >
+        #{sCard,jdbcType=VARCHAR},
+      </if>
+      <if test="sOpenid != null" >
+        #{sOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="sHeadImg != null" >
+        #{sHeadImg,jdbcType=VARCHAR},
+      </if>
+      <if test="sGender != null" >
+        #{sGender,jdbcType=VARCHAR},
+      </if>
+      <if test="sBirthday != null" >
+        #{sBirthday,jdbcType=DATE},
+      </if>
+      <if test="sStatus != null" >
+        #{sStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sCid != null" >
+        #{sCid,jdbcType=INTEGER},
+      </if>
+      <if test="sDepid != null" >
+        #{sDepid,jdbcType=INTEGER},
+      </if>
+      <if test="sUserType != null" >
+        #{sUserType,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null" >
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null" >
+        #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteAt != null" >
+        #{deleteAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null" >
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorName != null" >
+        #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.caibang.www.common.model.SUser" >
+    update s_user
+    <set >
+      <if test="sPassword != null" >
+        s_password = #{sPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sName != null" >
+        s_name = #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sCard != null" >
+        s_card = #{sCard,jdbcType=VARCHAR},
+      </if>
+      <if test="sOpenid != null" >
+        s_openid = #{sOpenid,jdbcType=VARCHAR},
+      </if>
+      <if test="sHeadImg != null" >
+        s_head_img = #{sHeadImg,jdbcType=VARCHAR},
+      </if>
+      <if test="sGender != null" >
+        s_gender = #{sGender,jdbcType=VARCHAR},
+      </if>
+      <if test="sBirthday != null" >
+        s_birthday = #{sBirthday,jdbcType=DATE},
+      </if>
+      <if test="sStatus != null" >
+        s_status = #{sStatus,jdbcType=INTEGER},
+      </if>
+      <if test="sCid != null" >
+        s_cid = #{sCid,jdbcType=INTEGER},
+      </if>
+      <if test="sDepid != null" >
+        s_depid = #{sDepid,jdbcType=INTEGER},
+      </if>
+      <if test="sUserType != null" >
+        s_user_type = #{sUserType,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null" >
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateAt != null" >
+        update_at = #{updateAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteAt != null" >
+        delete_at = #{deleteAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorId != null" >
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorName != null" >
+        operator_name = #{operatorName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where s_id = #{sId,jdbcType=INTEGER}
+      and s_login_name = #{sLoginName,jdbcType=VARCHAR}
+      and s_phone = #{sPhone,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.caibang.www.common.model.SUser" >
+    update s_user
+    set s_password = #{sPassword,jdbcType=VARCHAR},
+      s_name = #{sName,jdbcType=VARCHAR},
+      s_card = #{sCard,jdbcType=VARCHAR},
+      s_openid = #{sOpenid,jdbcType=VARCHAR},
+      s_head_img = #{sHeadImg,jdbcType=VARCHAR},
+      s_gender = #{sGender,jdbcType=VARCHAR},
+      s_birthday = #{sBirthday,jdbcType=DATE},
+      s_status = #{sStatus,jdbcType=INTEGER},
+      s_cid = #{sCid,jdbcType=INTEGER},
+      s_depid = #{sDepid,jdbcType=INTEGER},
+      s_user_type = #{sUserType,jdbcType=INTEGER},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      update_at = #{updateAt,jdbcType=TIMESTAMP},
+      delete_at = #{deleteAt,jdbcType=TIMESTAMP},
+      operator_id = #{operatorId,jdbcType=INTEGER},
+      operator_name = #{operatorName,jdbcType=VARCHAR}
+    where s_id = #{sId,jdbcType=INTEGER}
+      and s_login_name = #{sLoginName,jdbcType=VARCHAR}
+      and s_phone = #{sPhone,jdbcType=VARCHAR}
+  </update>
+</mapper>
