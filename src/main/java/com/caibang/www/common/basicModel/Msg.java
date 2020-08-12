@@ -1,20 +1,38 @@
 package com.caibang.www.common.basicModel;
 
+import lombok.Data;
+
 /**
  * 相应类
  */
+@Data
 public class Msg {
+    /**
+     * 是否成功
+     */
+    private boolean success;
 
-    private boolean success;//成功
+    /**
+     * 成功代码:0success;-1false
+     */
+    private Integer code;
 
-    private String code;//成功代码
+    /**
+     * 提示信息
+     */
+    private String msg;
 
-    private String msg;                    // 提示信息
+    /**
+     * object
+     */
+    private Object obj;
 
-    private Object obj;                    // 返回对象
+    public Msg() {
+        this.success = true;
+        this.code = 0;
+    }
 
-
-    public Msg(boolean success, String code, String msg, Object obj) {
+    public Msg(boolean success, Integer code, String msg, Object obj) {
         this.success = success;
         this.code = code;
         this.msg = msg;
@@ -22,19 +40,19 @@ public class Msg {
     }
 
 
-    public Msg(boolean success, String code, String msg) {
+    public Msg(boolean success, Integer code, String msg) {
         this.success = success;
         this.code = code;
         this.msg = msg;
     }
 
-    public Msg(boolean success, String code, Object obj) {
+    public Msg(boolean success, Integer code, Object obj) {
         this.success = success;
         this.code = code;
         this.obj = obj;
     }
 
-    public Msg(boolean success, String code) {
+    public Msg(boolean success, Integer code) {
         this.success = success;
         this.code = code;
     }
@@ -45,7 +63,7 @@ public class Msg {
      * @return
      */
     public static Msg success() {
-        return new Msg(true, "0");
+        return new Msg(true, 0);
     }
 
     /**
@@ -55,7 +73,7 @@ public class Msg {
      * @return
      */
     public static Msg success(String msg) {
-        return new Msg(true, "0", msg);
+        return new Msg(true, 0, msg);
     }
 
 
@@ -66,7 +84,7 @@ public class Msg {
      * @return
      */
     public static Msg success(Object obj) {
-        return new Msg(true, "0", obj);
+        return new Msg(true, 0, obj);
     }
 
     /**
@@ -77,7 +95,7 @@ public class Msg {
      * @return
      */
     public static Msg success(String msg, Object obj) {
-        return new Msg(true, "0", obj);
+        return new Msg(true, 0, obj);
     }
 
     /**
@@ -86,7 +104,7 @@ public class Msg {
      * @return
      */
     public static Msg error() {
-        return new Msg(false, "-1");
+        return new Msg(false, -1);
     }
 
     /**
@@ -96,7 +114,7 @@ public class Msg {
      * @return
      */
     public static Msg error(String msg) {
-        return new Msg(false, "-1", msg);
+        return new Msg(false, -1, msg);
     }
 
 
@@ -107,7 +125,7 @@ public class Msg {
      * @return
      */
     public static Msg error(Object obj) {
-        return new Msg(false, "-1", obj);
+        return new Msg(false, -1, obj);
     }
 
     /**
@@ -118,39 +136,7 @@ public class Msg {
      * @return
      */
     public static Msg error(String msg, Object obj) {
-        return new Msg(false, "-1", obj);
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Object getObj() {
-        return obj;
-    }
-
-    public void setObj(Object obj) {
-        this.obj = obj;
+        return new Msg(false, -1, obj);
     }
 
     @Override
